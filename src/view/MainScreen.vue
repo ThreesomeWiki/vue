@@ -4,7 +4,9 @@
 <script>
 export default {
     mounted() {
-        console.log('mounted');
+        this.$bus.$on('name', () => {
+            console.log('this is name');
+        });
     },
     methods: {
         goHome() {

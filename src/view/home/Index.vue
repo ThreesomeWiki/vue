@@ -3,6 +3,9 @@
 </template>
 <script>
 export default {
+    mounted() {
+        this.$bus.$emit('name');
+    },
     methods: {
         goBack() {
             this.$router.back();
