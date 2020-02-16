@@ -18,6 +18,14 @@ const store = new Vuex.Store({
             state.count++;
         },
     },
+    actions: {
+        addCount({ commit }, { data }) {
+            console.log(data);
+            setTimeout(() => {
+                commit('addCount');
+            }, 1);
+        },
+    },
 });
 new Vue({
     el: '#app',

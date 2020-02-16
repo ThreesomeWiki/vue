@@ -21,7 +21,8 @@ export default {
     },
     methods: {
         goHome() {
-            this.$store.commit('addCount');
+            this.$store.dispatch({ type: 'addCount', data: 123 });
+            // this.$store.commit('addCount');
             // this.add2();
             // this.$router.push('/home');
         },
