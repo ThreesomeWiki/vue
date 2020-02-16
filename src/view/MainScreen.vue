@@ -1,5 +1,5 @@
 <template>
-    <div @click="goHome">this is main screen{{count}}</div>
+    <div @click="goHome">this is main screen{{count}}{{add2}}</div>
 </template>
 <script>
 import { mapState } from 'vuex';
@@ -13,12 +13,16 @@ export default {
             console.log('this is name');
         });
     },
-    computed: mapState({
-        count: state => state.count,
-    }),
+    computed: {
+        ...mapState({
+            count: state => state.count,
+            add2: state => 'add2' + state.count,
+        }),
+    },
     methods: {
         goHome() {
             this.$store.commit('addCount');
+            // this.add2();
             // this.$router.push('/home');
         },
     },
