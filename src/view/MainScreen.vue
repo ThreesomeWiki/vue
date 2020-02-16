@@ -1,16 +1,25 @@
 <template>
-    <div @click="goHome">this is main screen</div>
+    <div @click="goHome">this is main screen{{count}}</div>
 </template>
 <script>
+import { mapState } from 'vuex';
+
 export default {
+    data() {
+        return {};
+    },
     mounted() {
         this.$bus.$on('name', () => {
             console.log('this is name');
         });
     },
+    computed: mapState({
+        count: state => state.count,
+    }),
     methods: {
         goHome() {
-            this.$router.push('/home');
+            this.$store.commit('addCount');
+            // this.$router.push('/home');
         },
     },
 };
